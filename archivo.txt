@@ -1,0 +1,146 @@
+Trabajo
+1. La misma instrucción para dos modelos de IA
+
+Copien esta instrucción, igual, en dos asistentes de IA distintos: «Escribe un programa en Python que pida tres números enteros y los muestre de menor a mayor. Usa solo input, if, else y comparaciones: sin listas, ciclos ni sorted(). Explica en tres líneas cómo funciona.»
+
+Desarrollo
+1.En claude
+a = int(input("Primer número: "))
+b = int(input("Segundo número: "))
+c = int(input("Tercer número: "))
+
+if a > b:
+    a, b = b, a
+if b > c:
+    b, c = c, b
+if a > b:
+    a, b = b, a
+
+print("De menor a mayor:", a, b, c)
+1.Se leen los tres números y se convierten a enteros con int(input(...)).
+2.Primero se comparan a y b (y luego b y c), intercambiándolos si están en desorden; así el mayor de los tres termina en c.
+3.La última comparación entre a y b los deja ordenados, y se imprimen de menor a mayor.
+
+2.En chatGPT
+a = int(input("Ingresa el primer número: "))
+b = int(input("Ingresa el segundo número: "))
+c = int(input("Ingresa el tercer número: "))
+
+if a <= b and a <= c:
+    if b <= c:
+        print(a, b, c)
+    else:
+        print(a, c, b)
+else:
+    if b <= a and b <= c:
+        if a <= c:
+            print(b, a, c)
+        else:
+            print(b, c, a)
+    else:
+        if a <= b:
+            print(c, a, b)
+        else:
+            print(c, b, a)
+1.input() pide los tres números y int() convierte cada entrada en un entero.
+2.Las condiciones if, else y las comparaciones determinan cuál número es menor, intermedio y mayor.
+3.Finalmente, print() muestra los tres números ordenados de menor a mayor.
+
+2.Prueben las tres soluciones con los mismos casos
+Su algoritmo y el de cada modelo, con los casos del registro de pruebas (abajo). Un programa que acierta con 7, 2, 5 puede fallar con repetidos o negativos.
+
+1.El mio
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar.py"
+Ingresa un numero:7
+Ingresa otro numero:2
+Ingresa un tercer numero:5
+2 5 7
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar.py"
+Ingresa un numero:9
+Ingresa otro numero:5
+Ingresa un tercer numero:1
+1 5 9
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar.py"
+Ingresa un numero:5
+Ingresa otro numero:1
+Ingresa un tercer numero:5
+1 5 5
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar.py"
+Ingresa un numero:-3
+Ingresa otro numero:5
+Ingresa un tercer numero:-1
+-3 -1 5
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar.py"
+Ingresa un numero:4
+Ingresa otro numero:4
+Ingresa un tercer numero:4
+4 4 4
+
+
+2.El de chatGPT
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar-chatGPT.py"
+Ingresa el primer número: 7
+Ingresa el segundo número: 2
+Ingresa el tercer número: 5
+2 5 7
+
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar-chatGPT.py"
+Ingresa el primer número: 9
+Ingresa el segundo número: 5
+Ingresa el tercer número: 1
+1 5 9
+
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar-chatGPT.py"
+Ingresa el primer número: 5
+Ingresa el segundo número: 1
+Ingresa el tercer número: 5
+1 5 5
+
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar-chatGPT.py"
+Ingresa el primer número: -3
+Ingresa el segundo número: 5
+Ingresa el tercer número: -1
+-3 -1 5
+
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar-chatGPT.py"
+Ingresa el primer número: 4
+Ingresa el segundo número: 4
+Ingresa el tercer número: 4
+4 4 4
+
+
+3.El de claude
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar-claude.py"
+Primer número: 7
+Segundo número: 2
+Tercer número: 5
+De menor a mayor: 2 5 7
+
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar-claude.py"
+Primer número: 9
+Segundo número: 5
+Tercer número: 1
+De menor a mayor: 1 5 9
+
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar-claude.py"
+Primer número: 5
+Segundo número: 1
+Tercer número: 5
+De menor a mayor: 1 5 5
+
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar-claude.py"
+Primer número: -3
+Segundo número: 5
+Tercer número: -1
+De menor a mayor: -3 -1 5
+
+cohorte8@RIWI-0715:~/JuanZapata/trabajosRIWI/IA/Ordenar Py$ /usr/bin/python3 "/home/cohorte8/JuanZapata/trabajosRIWI/IA/Ordenar Py/ordenar-claude.py"
+Primer número: 4
+Segundo número: 4
+Tercer número: 4
+De menor a mayor: 4 4 4
+
+3.¿Cuál pasó todas las pruebas? ¿Alguno usó algo que la instrucción prohibía? ¿Cuál es más fácil de leer? Escriban una explicación breve de la solución elegida.
+Desarrollo
+La mas facil de leer es la solucion mia o la de ChatGPT, la mia ya que se ve todo el codigo paso por paso y cada linea hace un solo trabajo,
+en cambio la de claude hace la solucion en muy pocas lineas, lo cual puede ser raro al tratar de leer el codigo pero es muy interesante porque lo hace en muy pocas lineas.
